@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 //import Realm from 'realm'
 
 //var Realm = require('realm');
+const Realm = require('realm');
+
 export default class RealmDBTest extends React.Component {
   constructor() {
     super();
@@ -13,6 +15,15 @@ export default class RealmDBTest extends React.Component {
   }
 
   componentWillMount() {
+    Realm.open({
+      schema: [{name: 'Dog', properties: {name: 'string'}}]
+    }).then(realm => {
+      realm.write(() => {
+        realm.create('Dog', {name: 'Bella'});
+        realm.create('Dog', {name: 'Lucy'});
+      });
+      this.setState({ realm });
+    });
   }
 
   componentDidMount() {
@@ -20,11 +31,11 @@ export default class RealmDBTest extends React.Component {
 
   render() {
     const info = this.state.realm
-    ? 'Number of dogs in this Realm: ' + this.state.realm.objects('Dog').length
+    ? 'Number of dogs in this Realm: ' + JSON.stringify(this.state.realm.objects('Dog'))
     : 'Loading...';
     return (
       <View style={styles.container}>
-        <Text>Hello RealmDB!</Text>
+        <Text>Hello RealmDB 4!</Text>
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>{info}</Text>
