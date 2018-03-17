@@ -1,5 +1,5 @@
 # React Native tests
-2018-03-16
+2018-03-16  
 ####Build React Native project with ios and Android native code
 1. node -v  
     v7.10.1  
@@ -16,7 +16,7 @@
 8. rm -r build  
 9. cd ios/  
 10. react-native run-ios  
-2018-03-17
+2018-03-17  
 ####Add navigation and Realm DB
 1. npm install --save react-navigation
 2. Create HomeScreen.js and RealmDB.js
