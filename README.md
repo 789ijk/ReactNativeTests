@@ -16,8 +16,8 @@
 8. rm -r build  
 9. cd ios/  
 10. react-native run-ios  
-2018-03-17  
-#### Add navigation and Realm DB
+
+#### Add navigation and Realm DB 2018-03-17  
 1. npm install --save react-navigation
 2. Create HomeScreen.js and RealmDB.js
 3. Modify App.js
@@ -29,3 +29,4 @@ Missing Realm constructor. Did you run "react-native link realm"? Please see htt
 7. deleting ios and android folder
 8. react-native eject (to recreating them)
 9. react-native link (to link dependencies again)
+10. Modified RealmDB.js with primary key, which won't create duplicate records
